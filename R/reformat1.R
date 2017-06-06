@@ -2,15 +2,16 @@
 #'
 #' @param data Original csv file.
 #' @param k The number of observations.
+#' @param s1 The starting column number of protein abundance.
+#' @param s2 The starting column number of peptide abundance.
 #' @export
 #' @return reformatted csv file.
 #' @examples
-#' setwd("C:/Users/kbs/Desktop/RA_Pig")
-#' # data = original data in .csv format 
-#' data<-read.csv("HN-A-2.csv")
-#' # result will be "HN-A.csv"
+#' setwd("C:/Users/kbs/Desktop/RA_pig2/Liver_samples")
+#' data<-read.csv("Infected-4.csv")
+#' temp<-reformat1(data,12,50,50)
 
-reformat1<-function(data,k){
+reformat1<-function(data,k,s1,s2){
   # data = original data
   # k = the number of observations
   # data2 = protein peptide part only
@@ -21,8 +22,8 @@ reformat1<-function(data,k){
   colnames(temp)<-c("Group","Names",paste0("obs",c(1:k)),"Ions score")
   for(i in 1:N){
     #Be careful about the column name.
-    if(as.logical(1-is.na(data2$Checked[i]))){temp[i,]<-c("Protein",as.character(data2[i,3]),as.numeric(as.matrix(data2[i,c((14+2*k):(13+3*k))])),NA)}
-    if(is.na(data2$Checked[i])){temp[i,]<-c("Peptide",as.character(data2[i,4]),as.numeric(as.matrix(data2[i,c((14+k):(14+2*k))])))}
+    if(as.logical(1-is.na(data2$Checked[i]))){temp[i,]<-c("Protein",as.character(data2[i,3]),as.numeric(as.matrix(data2[i,c(s1:(s1+k-1))])),NA)}
+    if(is.na(data2$Checked[i])){temp[i,]<-c("Peptide",as.character(data2[i,4]),as.numeric(as.matrix(data2[i,c(s2:(s2+k))])))}
   }
   return(temp)
 }
