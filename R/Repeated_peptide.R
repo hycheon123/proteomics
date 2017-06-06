@@ -15,6 +15,9 @@
 
 Repeated_peptide1<-function(data,first_col,last_col){
   peptide<-data[data$Group=="Peptide",]
+  missing<-apply(peptide[,-c(1,2,ncol(peptide))],1,function(x)sum(is.na(x))/(ncol(peptide)-3))
+  peptide<-peptide[missing!=1,]
+
   # A set of peptide names: name.
   name<-as.character(unique(peptide$Names))
   # There might exist missing Ions.score
@@ -55,6 +58,9 @@ Repeated_peptide1<-function(data,first_col,last_col){
 
 Repeated_peptide2<-function(data,first_col,last_col){
   peptide<-data[data$Group=="Peptide",]
+  missing<-apply(peptide[,-c(1,2,ncol(peptide))],1,function(x)sum(is.na(x))/(ncol(peptide)-3))
+  peptide<-peptide[missing!=1,]
+  
   # A set of peptide names: name.
   name<-as.character(unique(peptide$Names))
   # There might exist missing Ions.score
