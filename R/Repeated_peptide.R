@@ -98,7 +98,7 @@ Repeated_peptide2<-function(data,first_col,last_col){
 W_Repeated_peptide<-function(name,first_col,last_col){
   read.csv(paste0(name,".csv")) %>%
     Repeated_peptide2(first_col,last_col) %>%
-      write.csv(paste0(name,"_Repeated.csv"), row.names=F)
+      write.csv(paste0(name,"_Repeated_peptides.csv"), row.names=F)
 }
 
 # setwd("C:/Users/kbs/Desktop/proteomics")
