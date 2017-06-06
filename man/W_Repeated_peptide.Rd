@@ -2,7 +2,7 @@
 % Please edit documentation in R/Repeated_peptide.R
 \name{W_Repeated_peptide}
 \alias{W_Repeated_peptide}
-\title{Save all repeated peptide names and abundances.}
+\title{Save all repeated peptide names and abundances after removing totally missing abundances.}
 \usage{
 W_Repeated_peptide(name, first_col, last_col)
 }
@@ -17,7 +17,7 @@ W_Repeated_peptide(name, first_col, last_col)
 Write a set of Repeated peptides abundances in csv format.(_repeated.csv)
 }
 \description{
-Save all repeated peptide names and abundances.
+Save all repeated peptide names and abundances after removing totally missing abundances.
 }
 \examples{
 setwd("C:/Users/kbs/Desktop/RA_pig2")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Repeated_peptide.R
 \name{Repeated_peptide2}
 \alias{Repeated_peptide2}
-\title{A set of Repeated peptides abundances.}
+\title{A set of Repeated peptides abundances after removing totally missing abundances.}
 \usage{
 Repeated_peptide2(data, first_col, last_col)
 }
@@ -17,7 +17,7 @@ Repeated_peptide2(data, first_col, last_col)
 A set of Repeated peptides abundances.
 }
 \description{
-A set of Repeated peptides abundances.
+A set of Repeated peptides abundances after removing totally missing abundances.
 }
 \examples{
 # warning: I assumed that a vector of obserations are the same if they have the same observations.??

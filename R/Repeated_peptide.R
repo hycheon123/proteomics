@@ -1,4 +1,4 @@
-#' A set of Repeated peptide names
+#' A set of Repeated peptide names after removing totally missing abundances.
 #'
 #' @param data Reformatted csv file from the reformat1 function.
 #' @param first_col The first column of observations.
@@ -40,7 +40,7 @@ Repeated_peptide1<-function(data,first_col,last_col){
 }
 
 
-#' A set of Repeated peptides abundances.
+#' A set of Repeated peptides abundances after removing totally missing abundances.
 #'
 #' @param data Reformatted csv file from the reformat1 function.
 #' @param first_col The first column of observations.
@@ -83,7 +83,7 @@ Repeated_peptide2<-function(data,first_col,last_col){
 }
 
 
-#' Save all repeated peptide names and abundances.
+#' Save all repeated peptide names and abundances after removing totally missing abundances.
 #'
 #' @param name File name.
 #' @param first_col The first column of observations.
