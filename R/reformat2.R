@@ -13,7 +13,7 @@ reformat2<-function(data){
   leng1<-length(name1)
   tleng<-nrow(data)
   data2<-data.frame()
-  i=2
+  
   for(i in 1:leng1){
     if(i!=leng1){
       loc1<-c(1:tleng)[data$Names==name1[i]]
@@ -29,8 +29,13 @@ reformat2<-function(data){
       data2<-rbind(data2,temp2)    
     }
   }
-  data2<-data2[data2$Group=="Peptide",]
-  return(data2)
+  
+  t1<-data2[data2$Group=="Peptide",]
+  t1<-t1[!t1$Protein%in%paste0("PRTC-",1:30),]
+  t2<-data[data$Names%in%paste0("PRTC-",1:30),]
+  t2$Peptide<-t2$Names
+  data3<-rbind(t1,t2)
+  return(data3)
 }
 
 #devtools::document() 
