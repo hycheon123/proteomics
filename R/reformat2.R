@@ -33,7 +33,7 @@ reformat2<-function(data){
   t1<-data2[data2$Group=="Peptide",]
   t1<-t1[!t1$Protein%in%paste0("PRTC-",1:30),]
   t2<-data[data$Names%in%paste0("PRTC-",1:30),]
-  t2$Peptide<-t2$Names
+  t2$Protein<-t2$Names
   data3<-rbind(t1,t2)
   return(data3)
 }
